@@ -25,6 +25,14 @@ public class PlayerController : MonoBehaviour
         moveY = movementVector.y;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("PickUp") == true)
+        {
+            other.gameObject.SetActive(false);
+        }
+    }
+
     private void FixedUpdate()
     {
         Vector3 movement = new Vector3(moveX, 0.0f, moveY);
